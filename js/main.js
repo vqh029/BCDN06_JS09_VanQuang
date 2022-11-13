@@ -176,3 +176,58 @@ function capNhatNhanVien(taiKhoan) {
 
 }
 
+
+function locNhanVien() {
+    var inputFilter = document.getElementById("searchName");
+
+    var nvXS = [];
+    var nvG = [];
+    var nvK = [];
+    var nvTB = [];
+
+    for (var i = 0; i < dsnv.mangNV.length; i++) {
+        if (dsnv.mangNV[i].loaiNV == "nhân viên xuất sắc") {
+            var nv = dsnv.mangNV[i];
+            nvXS.push(nv);
+
+        }
+        else if (dsnv.mangNV[i].loaiNV == "nhân viên giỏi") {
+            var nv = dsnv.mangNV[i];
+            nvG.push(nv);
+
+        }
+        else if (dsnv.mangNV[i].loaiNV == "nhân viên khá") {
+            var nv = dsnv.mangNV[i];
+            nvK.push(nv);
+
+        }
+        else if (dsnv.mangNV[i].loaiNV == "nhân viên trung bình") {
+            var nv = dsnv.mangNV[i];
+            nvTB.push(nv);
+
+        }
+    }
+
+    var valFilter = document.getElementById("searchName").value;
+    valFilter = valFilter.toLowerCase().trim();
+    if (valFilter == "xuất sắc" || valFilter == "nhân viên xuất săc") {
+        hienThiTable(nvXS);
+    }
+    else if (valFilter == "giỏi" || valFilter == "nhân viên giỏi") {
+        hienThiTable(nvG);
+    }
+    else if (valFilter == "khá" || valFilter == "nhân viên khá") {
+        hienThiTable(nvK);
+    }
+    else if (valFilter == "trung bình" || valFilter == "nhân viên trung bình") {
+        hienThiTable(nvTB);
+    }
+    else if (valFilter == ""){
+        hienThiTable(dsnv.mangNV);
+    }
+    else{
+        hienThiTable([]);
+    }
+
+
+}
